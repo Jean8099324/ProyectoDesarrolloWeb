@@ -20,16 +20,18 @@
                 <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
 
                 <form th:action="@{/login}" method="post">
-                    <div class="mb-3">
-                        <label class="form-label">Correo</label>
-                        <input type="email" name="correo" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Contrasena</label>
-                        <input type="password" name="password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-warning w-100">Iniciar Sesion</button>
-                </form>
+    <div class="mb-3">
+        <label class="form-label">Correo</label>
+        <input type="email" name="username" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100">Iniciar Sesión</button>
+</form>
 
                 <p class="text-center mt-3 mb-0 small">
                     No tienes cuenta? <a href="/registro">Registrate aqui</a>

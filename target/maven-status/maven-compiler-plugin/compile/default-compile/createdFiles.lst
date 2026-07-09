@@ -1,1 +1,8 @@
+com\barbertime\model\Rol.class
+com\barbertime\model\Servicio.class
+com\barbertime\controller\PageController.class
+com\barbertime\model\Pago.class
 com\barbertime\BarberTimeApplication.class
+com\barbertime\model\Reserva.class
+com\barbertime\repository\ServicioRepository.class
+com\barbertime\model\Usuario.class
