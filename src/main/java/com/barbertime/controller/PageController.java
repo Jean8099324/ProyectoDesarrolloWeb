@@ -16,7 +16,7 @@ public class PageController {
     public String home(Model model) {
         // Trae los servicios reales desde MySQL.
         // Si la tabla esta vacia, la vista muestra servicios de ejemplo.
-        model.addAttribute("servicios", servicioRepository.findAll());
+        model.addAttribute("servicios", servicioRepository.findByActivoTrueOrderByNombreAsc());
         return "home";
     }
 

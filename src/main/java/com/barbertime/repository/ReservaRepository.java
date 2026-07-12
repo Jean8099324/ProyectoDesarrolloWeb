@@ -9,7 +9,13 @@ import java.util.List;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
-    boolean existsByFechaHoraAndEstadoNot(LocalDateTime fechaHora, String estado);
+    boolean existsByBarberoAndFechaHoraAndEstadoNot(Usuario barbero, LocalDateTime fechaHora, String estado);
 
     List<Reserva> findByUsuarioOrderByFechaHoraDesc(Usuario usuario);
+
+    List<Reserva> findByBarberoOrderByFechaHoraAsc(Usuario barbero);
+
+    List<Reserva> findAllByOrderByFechaHoraDesc();
+
+    List<Reserva> findByFechaHoraBetweenOrderByFechaHoraAsc(LocalDateTime inicio, LocalDateTime fin);
 }
