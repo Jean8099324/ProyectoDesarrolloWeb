@@ -66,4 +66,8 @@ public class Servicio {
     public void setActivo(Boolean activo) {
         this.activo = activo;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

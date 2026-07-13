@@ -97,7 +97,15 @@
                         th:text="${reserva.estado}">
                     </span>
                 </td>
+<form
+    th:action="@{/admin/servicios/eliminar/{id}(id=${servicio.id})}"
+    method="post"
+    onsubmit="return confirm('¿Deseas eliminar este servicio del catálogo?');">
 
+    <button class="btn btn-danger btn-sm">
+        Eliminar
+    </button>
+</form>
                 <td>
                     <form
                         th:if="${

@@ -59,4 +59,18 @@ public class AdminServicioController {
 
         return "redirect:/admin/servicios";
     }
+
+    @PostMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+
+        Servicio servicio = servicioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Servicio no encontrado"));
+
+        servicio.setActivo(false);
+        servicioRepository.save(servicio);
+
+        redirectAttributes.addFlashAttribute("mensaje", "Servicio eliminado del catálogo.");
+
+        return "redirect:/admin/servicios";
+    }
 }
