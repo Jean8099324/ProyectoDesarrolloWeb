@@ -2,5 +2,6 @@
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.compile.nullAnalysis.mode": "automatic",
     "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk-26.0.1",
-    "java.format.settings.url": ".vscode/java-formatter.xml"
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "spring-boot.ls.problem.bootVersionValidation": "OFF"
 }

@@ -1,11 +1,16 @@
 package com.barbertime.controller.admin;
 
-import com.barbertime.model.Servicio;
-import com.barbertime.repository.ServicioRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.barbertime.model.Servicio;
+import com.barbertime.repository.ServicioRepository;
 
 @Controller
 @RequestMapping("/admin/servicios")
@@ -48,7 +53,8 @@ public class AdminServicioController {
     }
 
     @PostMapping("/cambiar-estado/{id}")
-    public String cambiarEstado(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+    public String cambiarEstado(@PathVariable long id, RedirectAttributes redirectAttributes) {
+
         Servicio servicio = servicioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Servicio no encontrado"));
 
@@ -61,7 +67,7 @@ public class AdminServicioController {
     }
 
     @PostMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+    public String eliminar(@PathVariable long id, RedirectAttributes redirectAttributes) {
 
         Servicio servicio = servicioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Servicio no encontrado"));

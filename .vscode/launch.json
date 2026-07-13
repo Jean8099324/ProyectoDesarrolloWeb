@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BarberTime",
+            "request": "launch",
+            "mainClass": "com.barbertime.BarberTimeApplication",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

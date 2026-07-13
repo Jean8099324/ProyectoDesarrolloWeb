@@ -1,17 +1,21 @@
 package com.barbertime.controller.admin;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Set;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.barbertime.model.Pago;
 import com.barbertime.model.Reserva;
 import com.barbertime.repository.PagoRepository;
 import com.barbertime.repository.ReservaRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/admin/pagos")
@@ -36,8 +40,9 @@ public class AdminPagoController {
     }
 
     @PostMapping("/guardar")
-    public String guardar(@RequestParam Long reservaId, @RequestParam BigDecimal monto, @RequestParam String metodoPago,
+    public String guardar(@RequestParam long reservaId, @RequestParam BigDecimal monto, @RequestParam String metodoPago,
             RedirectAttributes redirectAttributes) {
+
         String metodo = metodoPago.toUpperCase();
 
         if (!METODOS_VALIDOS.contains(metodo)) {
