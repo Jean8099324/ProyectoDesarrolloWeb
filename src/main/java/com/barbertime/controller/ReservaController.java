@@ -114,7 +114,17 @@ public class ReservaController {
 
         Usuario usuario = obtenerUsuarioAutenticado(principal);
 
-        model.addAttribute("reservas", reservaRepository.findByUsuarioOrderByFechaHoraDesc(usuario));
+        
+        boolean esBarbero = usuario.getRoles().stream()
+                .anyMatch(rol -> "BARBERO".equalsIgnoreCase(rol.getNombre()));
+
+        if (esBarbero) {
+           
+            model.addAttribute("reservas", reservaRepository.findByBarberoOrderByFechaHoraDesc(usuario));
+        } else {
+            
+            model.addAttribute("reservas", reservaRepository.findByUsuarioOrderByFechaHoraDesc(usuario));
+        }
 
         return "mis-reservas";
     }
